@@ -41,7 +41,7 @@ body{
   width: 20%;
   height: 2px;
   background-color: crimson;
-  bottom: -10%;
+  bottom: -15%;
   left: 50%;
   transform: translateX(-50%);
 }

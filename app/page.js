@@ -1,5 +1,6 @@
 import Banner from "@/components/Banner";
 import FlowersContainer from "@/components/FlowersContainer";
+import Review from "@/components/Review";
 
 
 export default function Home() {
@@ -7,6 +8,7 @@ export default function Home() {
     <main >
       <Banner/>
       <FlowersContainer/>
+      <Review/>
     </main>
   );
 }

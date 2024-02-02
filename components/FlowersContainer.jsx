@@ -24,8 +24,8 @@ const FlowersContainer = () => {
   return (
     <section className="py-20">
     <div className="max-w-screen-xl mx-auto px-4 md:px-8">
-        <div className="space-y-5 sm:text-center ">
-            <h1 className="text-3xl font-bold banner_text header_line  sm:text-7xl">Flowers For You</h1>
+        <div className="space-y-5 header_line sm:text-center ">
+            <h1 className="text-3xl font-bold banner_text  text-gray-800 sm:text-7xl">Flowers For You</h1>
            
          
         </div>
