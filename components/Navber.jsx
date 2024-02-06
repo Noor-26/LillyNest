@@ -4,15 +4,20 @@ import Link from "next/link";
 
 import React, { useEffect, useState } from 'react'
 
+import { usePathname } from 'next/navigation';
+
+
 const Navber = () => {
-    const [state, setState] = useState(false)
-    
-    // Replace / paths with your paths
+    const [state, setState] = useState(false) 
+    const pathName = usePathname()
+    const textColor = pathName === "/" ? "text-white" : "text-black";
+    const borderColor = pathName === "/" ? "text-white" : "border-black border-b";
+   console.log(textColor)
     const navigation = [
         { title: "Home", path: "/" },
-        { title: "About", path: "/" },
-        { title: "Contact us", path: "/" },
-        { title: "Pricing", path: "/" }
+        { title: "About", path: "/about" },
+        { title: "Contact us", path: "/contact" },
+        { title: "Pricing", path: "/pricing" }
     ]
 
     useEffect(() => {
@@ -26,7 +31,7 @@ const Navber = () => {
         <div className="flex items-center justify-between py-5 md:block ">
             <Link href="/">
                 
-           <p className='brand_name text-white text-2xl md:text-4xl'>LillyNest</p>
+           <p className={`brand_name ${textColor} text-2xl font-semibold md:text-3xl lg:text-4xl '`}>LillyNest</p>
             </Link>
             <div className="md:hidden">
                 <button className="menu-btn text-white "
@@ -49,12 +54,12 @@ const Navber = () => {
     )
    
     return (
-        <div   className=''>
-            <header className="text_overlay">
+        <div   >
+            <header className={`${borderColor} text_overlay mb-5`}>
                 <div className={`md:hidden ${state ? "mx-2 pb-5" : "hidden"}`}>
                     <Brand />
                 </div>
-                <nav className={`pb-5 md:text-sm ${state ? "absolute z-20 top-0 inset-x-0 bg-gray-800 rounded-xl mx-2 mt-2 md:mx-0 md:mt-0 md:relative md:bg-transparent" : ""}`}>
+                <nav className={`pb-5 md:text-sm mb-[-25px] ${state ? "absolute z-20 top-0 inset-x-0 bg-gray-800 rounded-xl mx-2 mt-2 md:mx-0  md:mt-0 md:relative md:bg-transparent" : ""}`}>
                     <div className="gap-x-14 items-center max-w-screen-xl mx-auto px-4 md:flex md:px-8">
                         <Brand />
                         <div className={`flex-1 items-center mt-8 md:mt-0 md:flex ${state ? 'block' : 'hidden'} `}>
@@ -62,8 +67,8 @@ const Navber = () => {
                                 {
                                     navigation.map((item, idx) => {
                                         return (
-                                            <li key={idx} className="text-white ">
-                                                <a href={item.path} className="block  text-[18px]">
+                                            <li key={idx} className={textColor}>
+                                                <a href={item.path} className="block font-semibold  text-[18px]">
                                                     {item.title}
                                                 </a>
                                             </li>
